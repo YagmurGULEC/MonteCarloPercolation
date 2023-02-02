@@ -232,7 +232,7 @@ def run_trial(nrows, ncols,  p, trial, dp, storage, n_clicks):
     storage = json.loads(storage)
     table = storage['action_stack']
 
-    d['execution_time'] = stop_time-start_time
+    d['execution_time(sec)'] = stop_time-start_time
     d['data'] = data
     keys_to_extract = ['nrows', 'ncols', 'dp', 'trials']
     is_same = False
