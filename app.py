@@ -160,7 +160,7 @@ def create_simulation(nrows, ncols,  p, n_clicks):
         yaxis=dict(showticklabels=False),
         coloraxis_showscale=False,
         showlegend=False,
-        width=1000,
+
         autosize=False
     )
     fig.add_annotation(dict(font=dict(color="black", size=18),
@@ -199,18 +199,29 @@ def run_trial(nrows, ncols,  p, trial, dp, storage, n_clicks):
     data = collectstats(**d)
     stop_time = time.time()
     storage = json.loads(storage)
+    table = storage['action_stack']
+
+    d['execution_time'] = stop_time-start_time
     d['data'] = data
-    d['execution_time(sec)'] = stop_time-start_time
-    if len(storage['action_stack']) > 0:
-        if not any(i == d for i in storage['action_stack']):
-            storage['action_stack'].append(d)
+    keys_to_extract = ['nrows', 'ncols', 'dp', 'trials']
+    is_same = False
+    if len(table) > 0:
+        dict_compare = dict(
+            filter(lambda item: item[0] in keys_to_extract, d.items()))
+        for i in table:
+            res = dict(
+                filter(lambda item: item[0] in keys_to_extract, i.items()))
+            isSame = (res == dict_compare)
+            if (isSame == True):
+                break
+        if (isSame == False):
+            table.append(d)
 
     else:
-        storage['action_stack'].append(d)
+        table.append(d)
 
-    df = pd.DataFrame(storage['action_stack'])
-    df.drop('data', axis=1, inplace=True)
-
+    df = pd.DataFrame(table)
+    df.drop(columns=['data'], inplace=True)
     return [
         dbc.Table.from_dataframe(
             df, striped=True, bordered=True, hover=True, id="table"),
