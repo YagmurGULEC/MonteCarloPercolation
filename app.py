@@ -19,55 +19,73 @@ app = Dash(__name__,
            )
 
 server = app.server
-navbar = dbc.Navbar(
+header = dbc.Navbar(
     dbc.Container(
         [
             html.A(
-                # Use row and col to control vertical alignment of logo / brand
                 dbc.Row(
-                    [
-
-                        dbc.Col(dbc.NavbarBrand(
-                            "Plotly Dash App for Monte Carlo Simulation for Percolation", className="ms-2")),
-                    ],
+                    dbc.Col(dbc.NavbarBrand(
+                        "Plotly Dash App for Monte Carlo Simulation of Percolation", className="ms-2")),
                     align="center",
                     className="g-0",
                 ),
-                href="#",
+                href="/",
                 style={"textDecoration": "none"},
             ),
-            html.A(
-                # Use row and col to control vertical alignment of logo / brand
-                dbc.Row(
-                    [
-                        html.I(className="bi bi-github icon"),
+            dbc.Row(
+                [
+                    dbc.NavbarToggler(id="navbar-toggler"),
+                    dbc.Collapse(
+                        dbc.Nav(
+                            [
 
-                    ],
-                    align="center",
-                    className="g-0",
-                ),
-                href="https://github.com/YagmurGULEC/MonteCarloPercolation",
-                style={"textDecoration": "none"},
+
+                                html.A(
+                                    # Use row and col to control vertical alignment of logo / brand
+                                    dbc.Row(
+                                        [
+                                            html.I(
+                                                className="bi bi-github icon"),
+
+                                        ],
+                                        align="center",
+                                        className="flex-grow-1",
+                                    ),
+                                    href="https://github.com/YagmurGULEC/MonteCarloPercolation",
+                                    style={"textDecoration": "none"},
+                                ),
+                                html.A(
+                                    # Use row and col to control vertical alignment of logo / brand
+                                    dbc.Row(
+                                        [
+                                            html.I(
+                                                className="bi bi-linkedin icon"),
+
+                                        ],
+
+                                    ),
+                                    href="https://www.linkedin.com/in/ya%C4%9Fmur-g%C3%BCle%C3%A7-a52111204/",
+                                    style={"textDecoration": "none"},
+                                    className="mx-5"
+                                ),
+                            ],
+                            # make sure nav takes up the full width for auto
+                            # margin to get applied
+                            className="w-100",
+                        ),
+                        id="navbar-collapse",
+                        is_open=False,
+                        navbar=True,
+                    ),
+                ],
+                # the row should expand to fill the available horizontal space
+                className="flex-grow-2",
             ),
-            html.A(
-                # Use row and col to control vertical alignment of logo / brand
-                dbc.Row(
-                    [
-                        html.I(className="bi bi-linkedin icon"),
-
-                    ],
-                    align="center",
-                    className="g-1",
-                ),
-                href="https://www.linkedin.com/in/ya%C4%9Fmur-g%C3%BCle%C3%A7-a52111204/",
-                style={"textDecoration": "none"},
-            ),
-            dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
-
-        ]
+        ],
+        fluid=True,
     ),
-    color="dark",
     dark=True,
+    color="dark",
 )
 
 # all inputs to be constructed from dictionary in a loop
@@ -111,7 +129,7 @@ def serve_layout():
 
     return html.Div(children=[
 
-        navbar,
+        header,
         dbc.Container(
             [
                 dbc.Col(
