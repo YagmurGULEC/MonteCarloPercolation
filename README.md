@@ -1,1 +1,1 @@
-<img title="System percolated" alt="Alt text" src="/assets/percolation.png">
+<img title="System percolated" alt="Alt text" src="/blob/main/assets/percolate.png">
