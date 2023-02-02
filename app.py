@@ -28,7 +28,7 @@ navbar = dbc.Navbar(
                     [
 
                         dbc.Col(dbc.NavbarBrand(
-                            "Plotly App for Percolation Statistics", className="ms-2")),
+                            "Plotly Dash App for Monte Carlo Simulation for Percolation", className="ms-2")),
                     ],
                     align="center",
                     className="g-0",
@@ -47,6 +47,19 @@ navbar = dbc.Navbar(
                     className="g-0",
                 ),
                 href="https://github.com/YagmurGULEC/MonteCarloPercolation",
+                style={"textDecoration": "none"},
+            ),
+            html.A(
+                # Use row and col to control vertical alignment of logo / brand
+                dbc.Row(
+                    [
+                        html.I(className="bi bi-linkedin icon"),
+
+                    ],
+                    align="center",
+                    className="g-1",
+                ),
+                href="https://www.linkedin.com/in/ya%C4%9Fmur-g%C3%BCle%C3%A7-a52111204/",
                 style={"textDecoration": "none"},
             ),
             dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
