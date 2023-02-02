@@ -46,7 +46,7 @@ navbar = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="#",
+                href="https://github.com/YagmurGULEC/MonteCarloPercolation",
                 style={"textDecoration": "none"},
             ),
             dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
