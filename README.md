@@ -6,7 +6,7 @@ The opposite is valid for a non-percolated system. Blocked sites are represented
 <img title="System is percolated" alt="Alt text" src="./assets/percolate.png">
 <img title="System is not percolated" alt="Alt text" src="./assets/notpercolates.png">
 ## Optimized Quick-Union algorithm with Weighting and Path Compression
-The sites are initialized as blocked. Randomly, some of the sites are opened. When a site becomes open, the connectivity between the present site and the sites in the neighborhood is checked. Quick-union algorithm works for this dynamic connectivity problem. For this reason, the repository contains the object-oriented implementation of quick-union with path compression and weighting. Thanks to this improvement, computation increases linearly with the square of grid size.
+The sites are initialized as blocked. Randomly, some of the sites are opened. When a site becomes open, the connectivity between the present site and the sites in the neighborhood is checked. Quick-union algorithm works for this dynamic connectivity problem. For this reason, the repository contains the object-oriented implementation of quick-union with path compression and weighting. 
 <img title="System is not percolated" alt="Alt text" src="./assets/time_complexity.png">
 It is possible to add simulations to plot together to see the effect of parameters in the achievement of a sharper transition.
 <img title="System is not percolated" alt="Alt text" src="./assets/percplot.png">
